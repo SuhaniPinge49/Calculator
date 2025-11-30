@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #c084fc, #7c3aed);
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Calculator Box */
+      .box {
+        background: #ffffff;
+        padding: 30px;
+        width: 90%;
+        max-width: 380px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+
+      /* Title */
+      .box h1 {
+        font-size: 32px;
+        color: #5b21b6;
+        font-weight: 700;
+        background: none;
+        border: none;
+        padding: 0;
+        margin-bottom: 15px;
+      }
+
+      /* Input fields */
+      input {
+        width: 90%;
+        padding: 12px;
+        margin: 10px auto;
+        border-radius: 10px;
+        border: 2px solid #c084fc;
+        font-size: 16px;
+        outline: none;
+        background: #faf5ff;
+        color: #4c1d95;
+        transition: 0.3s;
+      }
+
+      input:focus {
+        border-color: #7c3aed;
+      }
+
+      /* Buttons */
+      button {
+        width: 45%;
+        padding: 12px;
+        margin: 10px 5px;
+        font-size: 15px;
+        border: none;
+        background: #6d28d9;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.25s;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover {
+        background: #5b21b6;
+        transform: translateY(-3px);
+      }
+
+      button:active {
+        transform: scale(0.96);
+      }
+
+      /* Output Box */
+      #output {
+        margin-top: 20px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #f5f3ff;
+        border: 2px solid #c4b5fd;
+        font-size: 26px;
+        color: #4c1d95;
+        font-weight: 700;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Calculator</h1>
+      <input id="num1" type="number" placeholder="Enter Number 1" />
+      <input id="num2" type="number" placeholder="Enter Number 2" />
+      <button onclick="calculate('add')">ADD (+)</button>
+      <button onclick="calculate('sub')">SUBTRACT (-)</button>
+      <button onclick="calculate('mul')">MULTIPLY (×)</button>
+      <button onclick="calculate('div')">DIVIDE (/)</button>
+
+      <h1 id="output">Answer</h1>
+    </div>
+    <script>
+      function calculate(operation) {
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        let out = document.getElementById("output");
+        let result;
+
+        if (operation === "add") {
+          result = num1 + num2;
+        } else if (operation === "sub") {
+          result = num1 - num2;
+        } else if (operation === "mul") {
+          result = num1 * num2;
+        } else if (operation === "div") {
+          result = num1 / num2;
+        }
+
+        out.textContent = result;
+      }
+    </script>
+  </body>
+</html>
